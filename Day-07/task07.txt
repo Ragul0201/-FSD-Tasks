@@ -1,0 +1,74 @@
+// Get all the countries from Asia continent using Filter function
+
+let API = `https://restcountries.com/v3.1/all`;
+
+let req = new XMLHttpRequest()
+
+req.open("GET",API)
+
+req.send()
+
+req.onload = function(){
+    let res = req.response
+    let data = JSON.parse(res)
+    console.log(data)
+    let ans = data.filter((a)=>a.continents == "Asia").forEach((val)=>console.log(val.name.common))
+    // console.log(ans);
+}
+
+
+// Get all the countries with a population of less than 2 lakhs using Filter function
+
+let API = `https://restcountries.com/v3.1/all`;
+
+let req = new XMLHttpRequest()
+
+req.open("GET",API)
+
+req.send()
+
+req.onload = function(){
+    let res = req.response
+    let data = JSON.parse(res)
+    console.log(data)
+    let val = data.filter((a)=>a.population<200000).forEach((val)=>console.log(val.name.common))
+
+
+}
+
+// Print the following details name, capital, flag, using forEach function
+
+let API = `https://restcountries.com/v3.1/all`;
+
+let req = new XMLHttpRequest()
+
+req.open("GET",API)
+
+req.send()
+
+req.onload = function(){
+    let res = req.response
+    let data = JSON.parse(res)
+    console.log(data)
+    let val = data.forEach((dat)=>console.log(`Name : ${dat.name.common}, Capital : ${dat.capital},Flags : ${dat.flags.png}`))
+
+
+}
+
+// // Print the total population of countries using reduce function
+
+let API = `https://restcountries.com/v3.1/all`;
+
+let req = new XMLHttpRequest()
+
+req.open("GET",API)
+
+req.send()
+
+req.onload = function(){
+    let res = req.response
+    let data = JSON.parse(res)
+    console.log (data)
+    let answer = data.map((e)=>e.population).reduce((p,c)=>p+c)
+    console.log(answer);
+}
