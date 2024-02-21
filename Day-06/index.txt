@@ -6,6 +6,7 @@ class Movie{
         }
         getPG(){
             return `Rating: ${this.rating}`;
+            
         }
 }
 
